@@ -1,0 +1,27 @@
+{
+  "title": "CANalyzer-OS Bus Monitor",
+  "uid": "canalyzer-dashboard",
+  "tags": ["can", "freertos", "stm32"],
+  "panels": [
+    {
+      "title": "Bus Load %",
+      "type": "gauge",
+      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 0 },
+      "targets": [{ "expr": "can_bus_load_pct" }]
+    },
+    {
+      "title": "Message Frequency (Hz)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 16, "x": 8, "y": 0 },
+      "targets": [{ "expr": "rate(can_frames_logged[1m])" }]
+    },
+    {
+      "title": "Error Rate",
+      "type": "stat",
+      "gridPos": { "h": 6, "w": 8, "x": 0, "y": 8 },
+      "targets": [{ "expr": "can_bus_errors" }]
+    }
+  ],
+  "schemaVersion": 39,
+  "version": 1
+}
